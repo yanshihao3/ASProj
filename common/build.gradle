@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply plugin: 'com.github.dcendents.android-maven' //this way we can find the android-maven in jcenter
+
 
 def ext = rootProject.ext
 def dependency = rootProject.ext.dependencies
