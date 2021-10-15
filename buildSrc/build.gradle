@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+
+repositories {
+        google()
+        jcenter()
+}
+
+
+dependencies {
+
+    implementation gradleApi()
+    // 包含了AMS字节码注入工具
+    implementation "com.android.tools.build:gradle:4.2.2"
+    implementation localGroovy()
+    implementation 'org.javassist:javassist:3.27.0-GA'
+
+
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
