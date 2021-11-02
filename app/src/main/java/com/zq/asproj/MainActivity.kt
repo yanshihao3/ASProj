@@ -48,10 +48,7 @@ class MainActivity : AppCompatActivity(), MainActivityLogic.ActivityProvider {
         val viewModel = ViewModelProvider(this).get(HiViewModel::class.java)
         viewModel.loadInitData().observe(this){
 
-
         }
-
-        ARouter.getInstance().build("/order/main").navigation()
     }
 
     override fun onStart() {
