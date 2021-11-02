@@ -52,6 +52,7 @@ dependencies {
     api project(path: ':ui')
     api project(path: ':hilibrary')
     api project(path: ':service_login')
+    implementation project(path: ':flutter')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
