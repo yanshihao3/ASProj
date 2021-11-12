@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.zq.ability">
+
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED"
+        tools:node="remove" />
+    <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 start-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 end-->
+
+    <!--相机权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application>
+
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="appid=104964577" />
+
+        <service
+            android:name="com.taobao.accs.ChannelService"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <service
+            android:name="com.taobao.accs.data.MsgDistributeService"
+            android:exported="false"
+            tools:replace="android:exported" />
+
+        <receiver
+            android:name="com.taobao.accs.EventReceiver"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <receiver
+            android:name="com.taobao.accs.ServiceReceiver"
+            android:exported="false"
+            tools:replace="android:exported" />
+
+        <service
+            android:name="org.android.agoo.accs.AgooService"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <service
+            android:name="com.umeng.message.UmengIntentService"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <service
+            android:name="com.umeng.message.XiaomiIntentService"
+            android:exported="false"
+            tools:replace="android:exported" />
+
+        <receiver
+            android:name="com.taobao.agoo.AgooCommondReceiver"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <service
+            android:name="com.umeng.message.UmengMessageIntentReceiverService"
+            android:exported="false"
+            tools:replace="android:exported" />
+    </application>
+</manifest>

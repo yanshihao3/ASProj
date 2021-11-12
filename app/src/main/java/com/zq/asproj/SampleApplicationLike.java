@@ -12,6 +12,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.tinker.entry.DefaultApplicationLike;
+import com.zq.ability.Ability;
 import com.zq.common.flutter.FlutterCacheManager;
 import com.zq.hilibrary.log.ConsolePrinter;
 import com.zq.hilibrary.log.LogConfig;
@@ -40,7 +41,8 @@ public class SampleApplicationLike extends DefaultApplicationLike {
 
         });
         LogManager.addPrinter(new ConsolePrinter());
-        FlutterCacheManager.getInstans().preLoad(getApplication());
+        FlutterCacheManager.getInstances().preLoad(getApplication());
+        Ability.INSTANCE.init(getApplication(), "umeng", null);
     }
 
 

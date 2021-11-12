@@ -1,40 +1,46 @@
 package com.zq.asproj
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.alibaba.android.arouter.launcher.ARouter
+import com.umeng.message.PushAgent
 import com.zq.asproj.logic.MainActivityLogic
+import com.zq.common.ui.component.BaseActivity
 import com.zq.hilibrary.util.DataBus
 
 
-class MainActivity : AppCompatActivity(), MainActivityLogic.ActivityProvider {
+class MainActivity : BaseActivity(), MainActivityLogic.ActivityProvider {
 
     lateinit var mainActivityLogic: MainActivityLogic
 
     private val FRAGMNET = "fragment"
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.e("TAG", "onCreate: ")
         mainActivityLogic = MainActivityLogic(this, savedInstanceState)
-
+        PushAgent.getInstance(this).onAppStart()
         DataBus.with<String>("stickyData").observeSticky(this, false) {
 
         }
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         mainActivityLogic.onSaveInstanceState(outState)
         lifecycleScope.launchWhenCreated {
-
-
         }
     }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+    }
+
 
     override fun onResume() {
 
@@ -46,7 +52,7 @@ class MainActivity : AppCompatActivity(), MainActivityLogic.ActivityProvider {
             supportFragmentManager.beginTransaction().add(fragment, "tag").commitAllowingStateLoss()
         }
         val viewModel = ViewModelProvider(this).get(HiViewModel::class.java)
-        viewModel.loadInitData().observe(this){
+        viewModel.loadInitData().observe(this) {
 
         }
     }

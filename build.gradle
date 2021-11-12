@@ -7,6 +7,8 @@ buildscript {
         google()
         mavenCentral()
         jcenter()
+        maven { url 'https://developer.huawei.com/repo/'}
+
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
@@ -16,6 +18,7 @@ buildscript {
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
         classpath 'io.github.nameyuan:plugin:2.0.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+        classpath 'com.huawei.agconnect:agcp:1.4.2.300'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -27,6 +30,8 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://developer.huawei.com/repo/'}
+        maven { url 'https://repo1.maven.org/maven2/' }
     }
 }
 
@@ -34,8 +39,3 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-task taskA {
-     doFirst {
-         println "taskA"
-     }
-}
