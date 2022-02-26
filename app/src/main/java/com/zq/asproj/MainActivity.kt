@@ -52,6 +52,8 @@ class MainActivity : BaseActivity(), MainActivityLogic.ActivityProvider {
             supportFragmentManager.beginTransaction().add(fragment, "tag").commitAllowingStateLoss()
         }
         val viewModel = ViewModelProvider(this).get(HiViewModel::class.java)
+
+
         viewModel.loadInitData().observe(this) {
 
         }

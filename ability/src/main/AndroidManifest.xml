@@ -75,5 +75,34 @@
             android:name="com.umeng.message.UmengMessageIntentReceiverService"
             android:exported="false"
             tools:replace="android:exported" />
+
+        <activity
+            android:name=".push.MfrMessageActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="${applicationId}"
+                    android:path="/thirdpush"
+                    android:scheme="agoo" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".pay.wxpay.WXPayEntryActivity"
+            android:launchMode="singleTop"
+            android:exported="true"/>
+
+        <!--别名 ：baoming.wxapi.WXPayEntryActivity-->
+        <activity-alias
+            android:name="${applicationId}.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:targetActivity="com.zq.ability.pay.wxpay.WXPayEntryActivity"/>
     </application>
 </manifest>

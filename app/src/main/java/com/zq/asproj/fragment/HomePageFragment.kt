@@ -1,6 +1,9 @@
 package com.zq.asproj.fragment
 
 import android.os.Bundle
+import android.widget.Button
+import com.zq.ability.share.ShareBundle
+import com.zq.ability.share.ShareManager
 import com.zq.asproj.R
 import com.zq.common.ui.component.BaseFragment
 
@@ -34,5 +37,10 @@ class HomePageFragment : BaseFragment() {
 //            }
 //
 //        })
+        layoutView.findViewById<Button>(R.id.button).setOnClickListener {
+            ShareManager.share(requireContext(), ShareBundle())
+
+        }
+
     }
 }
